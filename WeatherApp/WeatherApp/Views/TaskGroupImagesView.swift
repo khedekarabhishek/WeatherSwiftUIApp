@@ -53,6 +53,7 @@ class TaskGroupImagesViewModel: ObservableObject {
         "https://picsum.photos/300",
         "https://picsum.photos/300",
         "https://picsum.photos/300",
+        "https://picsum.photos/300",
     ]
     private var manager: TaskGroupImagesViewDataManager
     
