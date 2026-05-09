@@ -27,7 +27,7 @@ final class WeatherAppTests: XCTestCase {
     }
     
     func testNameIsNotEmpty() throws {
-        let name = "Abhishek"
+        let name = ""
         XCTAssertTrue(!name.isEmpty)
     }
 
