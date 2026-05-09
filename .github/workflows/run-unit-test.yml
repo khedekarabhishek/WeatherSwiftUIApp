@@ -9,6 +9,7 @@ jobs:
         uses: actions/checkout@v4 # Updated to v4 (latest)
 
       - name: Run tests
+        working-directory: ./WeatherApp
         run: |
           xcodebuild test \
             -project WeatherApp.xcodeproj \
