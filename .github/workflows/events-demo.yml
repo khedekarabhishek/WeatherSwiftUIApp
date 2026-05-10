@@ -20,20 +20,15 @@ jobs:
         run: |
           xcodebuild test \
             -project WeatherApp.xcodeproj \
-            -scheme WeatherApp
+            -scheme WeatherApp \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest'
       - name: Build project
         working-directory: ./WeatherApp
         run: |
           xcodebuild build \
             -project WeatherApp.xcodeproj \
-            -scheme WeatherApp
+            -scheme WeatherApp \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             CODE_SIGNING_ALLOWED=NO
       - name: Deploy Project
-        run: echo "Project deployeed"
-
-        
-          
-  
-    
+        run: echo "Project deployed"
