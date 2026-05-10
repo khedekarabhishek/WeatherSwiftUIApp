@@ -29,3 +29,6 @@ jobs:
             -project WeatherApp.xcodeproj \
             -scheme WeatherApp \
             -destination 'generic/platform=iOS'
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            CODE_SIGNING_ALLOWED=NO
+
