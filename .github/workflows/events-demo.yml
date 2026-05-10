@@ -1,0 +1,39 @@
+name: Events Demo
+on:
+  pull_request:
+    types:
+      - opened
+jobs:
+  deploy:
+    runs-on: macos-latest
+    steps:
+      - name: Output event details
+        run: echo "${{ toJson(github.event) }}"
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Setup Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '16.4.0'
+      - name: Run Tests
+        working-directory: ./WeatherApp
+        run: |
+          xcodebuild test \
+            -project WeatherApp.xcodeproj \
+            -scheme WeatherApp
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest'
+      - name: Build project
+        working-directory: ./WeatherApp
+        run: |
+          xcodebuild build \
+            -project WeatherApp.xcodeproj \
+            -scheme WeatherApp
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Deploy Project
+        run: echo "Project deployeed"
+
+        
+          
+  
+    
