@@ -7,6 +7,10 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
+      - name: Setup Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '16.4.0'
       - name: Run tests
         working-directory: ./WeatherApp
         run: |
@@ -14,3 +18,22 @@ jobs:
             -project WeatherApp.xcodeproj \
             -scheme WeatherApp \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest'
+  build:
+    runs-on: macos-latest
+    needs: test
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Setup Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '16.4.0'
+      - name: Build project
+        working-directory: ./WeatherApp
+        run: |
+          xcodebuild build \
+            -project WeatherApp.xcodeproj \
+            -scheme WeatherApp \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            CODE_SIGNING_ALLOWED=NO
+
