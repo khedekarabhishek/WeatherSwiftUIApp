@@ -30,5 +30,10 @@ final class WeatherAppTests: XCTestCase {
         let name = "Abhishek"
         XCTAssertTrue(!name.isEmpty)
     }
+    
+    func testNumberIsZero() throws {
+        let number = 0
+        XCTAssertTrue(number == 0)
+    }
 
 }
