@@ -3,11 +3,10 @@ on: push
 
 jobs:
   test:
-    runs-on: macos-latest  # Added the missing 'runs-on' key
+    runs-on: macos-latest
     steps:
       - name: Get code
-        uses: actions/checkout@v4 # Updated to v4 (latest)
-
+        uses: actions/checkout@v4
       - name: Run tests
         working-directory: ./WeatherApp
         run: |
