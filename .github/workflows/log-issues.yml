@@ -6,4 +6,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Output event details
-        run: echo "${ toJSON(github.event) }"
+        run: echo "${{ toJSON(github.event) }}"
